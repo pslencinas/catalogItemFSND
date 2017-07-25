@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block contentMain %}
+
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="x_title">
+      <h2>Lastest Movies</h2>
+      <div class="clearfix"></div>
+    </div>
+    <ul class="list-unstyled top_profiles scroll-view">
+      {% for lastmovie in lastmovies %}
+        <li class="media event">
+          <a class="pull-left border-aero profile_thumb" href="{{lastmovie.youtube_url}}">
+            <i class="fa fa-caret-square-o-right"></i>
+          </a>
+          <div class="media-body">
+            <a class="title" href="#">{{lastmovie.name}}</a>
+            <p> <small>{{lastmovie.director}}</small>
+            </p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

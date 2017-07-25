@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+  <div class="mdl-grid typography--text-center">
+    <header class="mdl-cell mdl-cell--12-col">
+      <h1>Welcome to the Catalog Movies!</h1>
+      {% if username %}
+      <a class="btn btn-primary" href="/catalog/new" role="button">Add</a>
+      {% endif %}
+    </header>
+  </div>
+  <br>
+  {% for movie in movies%}
+    <div class="col-md-3 col-xs-12 widget widget_tally_box">
+      <div class="x_panel fixed_height_390">
+        <div class="x_title">
+          <img src="{{movie.poster_url}}">
+          <a href="{{url_for('showMovie', id = movie.id)}}"><h3>{{movie.name}}</h3></a>
+          
+        </div>
+        
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
